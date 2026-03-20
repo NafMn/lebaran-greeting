@@ -3,6 +3,7 @@
   "name": "meow-lebaran",
   "main": "src/server.js",
   "compatibility_date": "2024-03-20",
+  "compatibility_flags": [ "nodejs_compat" ],
   "assets": {
     "directory": "./public",
     "binding": "ASSETS"
