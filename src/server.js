@@ -10,7 +10,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "..", "public")));
+if (typeof __dirname !== "undefined") {
+  app.use(express.static(path.join(__dirname, "..", "public")));
+}
 
 // ─── Helpers ───────────────────────────────────────────────────────────────
 
@@ -120,11 +122,26 @@ app.post("/api/komentar", async (req, res) => {
 });
 
 // ─── SPA fallback ──────────────────────────────────────────────────────────
-app.get("*", (_, res) =>
-  res.sendFile(path.join(__dirname, "..", "public", "index.html")),
-);
+app.get("*", (_, res) => {
+  if (typeof __dirname !== "undefined") {
+    res.sendFile(path.join(__dirname, "..", "public", "index.html"));
+  } else {
+    res.status(404).json({ ok: false, error: "Not Found" });
+  }
+});
 
 // ─── Start ─────────────────────────────────────────────────────────────────
-app.listen(PORT, () =>
-  console.log(`🐱 Meow Lebaran running → http://localhost:${PORT}`),
-);
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () =>
+    console.log(`🐱 Meow Lebaran running → http://localhost:${PORT}`),
+  );
+}
+
+const serverless = require("serverless-http");
+const handler = serverless(app);
+
+module.exports = {
+  fetch: handler,
+  handler: handler,
+  app: app
+};
