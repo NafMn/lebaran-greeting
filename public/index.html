@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🐱 Meow Lebaran — Idul Fitri 1446 H</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Noto+Serif:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #d4a017;
+        --gold-light: #f5d76e;
+        --gold-pale: #fff8e1;
+        --green: #1b5e20;
+        --green-mid: #2e7d32;
+        --cream: #fffdf4;
+        --brown: #4e342e;
+        --shadow: rgba(212, 160, 23, 0.25);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: var(--cream);
+        font-family: "Noto Serif", serif;
+        overflow-x: hidden;
+        cursor: none;
+      }
+
+      /* ── Custom cursor ── */
+      .cursor {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--gold);
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        mix-blend-mode: multiply;
+      }
+
+      /* ── Background ── */
+      .bg-pattern {
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(
+            ellipse at 20% 0%,
+            rgba(212, 160, 23, 0.12),
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse at 80% 100%,
+            rgba(27, 94, 32, 0.1),
+            transparent 60%
+          );
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ── Lanterns ── */
+      .lanterns {
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        padding-top: 30px;
+        position: relative;
+        z-index: 2;
+        animation: sway 4s ease-in-out infinite alternate;
+      }
+      @keyframes sway {
+        from {
+          transform: rotate(-2deg);
+        }
+        to {
+          transform: rotate(2deg);
+        }
+      }
+      .lantern {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        animation: floatL 3s ease-in-out infinite;
+      }
+      .lantern:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+      .lantern:nth-child(3) {
+        animation-delay: 1s;
+      }
+      @keyframes floatL {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .lantern-string {
+        width: 2px;
+        height: 28px;
+        background: var(--brown);
+        opacity: 0.5;
+      }
+      .lantern-body {
+        width: 36px;
+        height: 52px;
+        background: radial-gradient(ellipse at 40% 30%, #ff8f00, #e65100);
+        border-radius: 50% 50% 40% 40%;
+        box-shadow:
+          0 0 20px 8px rgba(255, 143, 0, 0.4),
+          0 0 40px 16px rgba(255, 143, 0, 0.15);
+        position: relative;
+      }
+      .lantern-body::before {
+        content: "";
+        position: absolute;
+        inset: 6px;
+        background: radial-gradient(
+          ellipse at 40% 40%,
+          rgba(255, 220, 100, 0.6),
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .lantern-fringe {
+        width: 38px;
+        display: flex;
+        justify-content: space-around;
+      }
+      .lantern-fringe span {
+        width: 2px;
+        height: 12px;
+        background: #ff6d00;
+        border-radius: 2px;
+        opacity: 0.8;
+      }
+
+      /* ── Hero ── */
+      .hero {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 10px 20px 0;
+      }
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.8rem, 8vw, 6rem);
+        font-weight: 900;
+        color: var(--green);
+        line-height: 1;
+        letter-spacing: -1px;
+        text-shadow:
+          3px 3px 0 var(--gold-light),
+          6px 6px 0 rgba(212, 160, 23, 0.2);
+        animation: titleIn 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      @keyframes titleIn {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+      .hero-sub {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: clamp(1.1rem, 3vw, 1.6rem);
+        color: var(--gold);
+        margin-top: 6px;
+        animation: titleIn 1s 0.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+      .divider {
+        margin: 18px auto;
+        width: 220px;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--gold),
+          transparent
+        );
+        animation: titleIn 1s 0.3s both;
+      }
+
+      /* ── Cards ── */
+      .section-wrap {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 20px 16px;
+        position: relative;
+        z-index: 2;
+      }
+      .card {
+        background: white;
+        border: 2px solid var(--gold-light);
+        border-radius: 24px;
+        padding: 28px 32px;
+        box-shadow: 0 8px 40px var(--shadow);
+        position: relative;
+        overflow: hidden;
+        animation: titleIn 1s 0.4s both;
+      }
+      .card::before {
+        content: "✦";
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        color: var(--gold-light);
+        font-size: 1.5rem;
+      }
+      .label {
+        font-size: 0.78rem;
+        color: var(--gold);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      /* ── AI Greeting ── */
+      .ai-greeting {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1rem, 2.5vw, 1.25rem);
+        color: var(--brown);
+        line-height: 1.8;
+        min-height: 60px;
+      }
+      .cursor-blink {
+        display: inline-block;
+        width: 3px;
+        height: 1.1em;
+        background: var(--gold);
+        margin-left: 2px;
+        vertical-align: middle;
+        animation: blink 0.8s step-end infinite;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+
+      /* ── Buttons ── */
+      .btn-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .btn-primary {
+        padding: 12px 28px;
+        background: linear-gradient(135deg, var(--green), var(--green-mid));
+        color: var(--gold-light);
+        border: none;
+        border-radius: 50px;
+        font-family: "Playfair Display", serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(27, 94, 32, 0.35);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(27, 94, 32, 0.45);
+      }
+      .btn-primary:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+      }
+      .btn-outline {
+        padding: 10px 20px;
+        background: var(--gold-pale);
+        color: var(--green);
+        border: 2px solid var(--gold);
+        border-radius: 50px;
+        font-family: "Noto Serif", serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .btn-outline:hover {
+        background: var(--gold-light);
+        transform: translateY(-2px);
+      }
+      .error-msg {
+        color: #c0392b;
+        font-size: 0.9rem;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      /* ── Cat Parade ── */
+      .cat-parade {
+        display: flex;
+        justify-content: center;
+        gap: clamp(16px, 4vw, 44px);
+        flex-wrap: wrap;
+        padding: 4px 20px 0;
+        position: relative;
+        z-index: 2;
+        animation: titleIn 1s 0.5s both;
+      }
+      .cat-card {
+        background: white;
+        border-radius: 20px;
+        padding: 16px 18px 14px;
+        box-shadow: 0 6px 30px var(--shadow);
+        border: 1.5px solid var(--gold-light);
+        text-align: center;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        cursor: pointer;
+        min-width: 110px;
+      }
+      .cat-card:hover {
+        transform: translateY(-10px) rotate(-1deg);
+        box-shadow: 0 16px 40px var(--shadow);
+      }
+      .cat-emoji {
+        font-size: 4rem;
+        display: block;
+        line-height: 1;
+      }
+      .cat-kopiah {
+        font-size: 1.8rem;
+        margin-top: -1rem;
+        display: block;
+      }
+      .cat-name {
+        font-size: 0.75rem;
+        color: var(--brown);
+        font-style: italic;
+        margin-top: 6px;
+      }
+      .ketupat-row {
+        text-align: center;
+        font-size: 1.4rem;
+        letter-spacing: 8px;
+        color: var(--green);
+        padding: 14px 0 6px;
+        position: relative;
+        z-index: 2;
+        opacity: 0.5;
+        animation: titleIn 1s 0.6s both;
+      }
+
+      /* ── Form fields ── */
+      .input-field {
+        flex: 1;
+        min-width: 150px;
+        padding: 10px 16px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50px;
+        font-family: "Noto Serif", serif;
+        font-size: 0.9rem;
+        color: var(--brown);
+        background: var(--gold-pale);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .input-field:focus {
+        border-color: var(--gold);
+      }
+      .input-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+        align-items: center;
+      }
+      .textarea-field {
+        width: 100%;
+        padding: 14px 18px;
+        border: 2px solid var(--gold-light);
+        border-radius: 16px;
+        font-family: "Noto Serif", serif;
+        font-size: 0.92rem;
+        color: var(--brown);
+        background: var(--gold-pale);
+        resize: none;
+        height: 78px;
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .textarea-field:focus {
+        border-color: var(--gold);
+      }
+      .select-field {
+        padding: 10px 14px;
+        border: 2px solid var(--gold-light);
+        border-radius: 50px;
+        font-family: "Noto Serif", serif;
+        font-size: 0.9rem;
+        color: var(--brown);
+        background: var(--gold-pale);
+        outline: none;
+        cursor: pointer;
+      }
+      .comment-form-box {
+        margin-bottom: 22px;
+        padding-bottom: 22px;
+        border-bottom: 1.5px solid var(--gold-light);
+      }
+
+      /* ── Dana Kaget reward ── */
+      #danaKagetReward {
+        display: none;
+        background: linear-gradient(135deg, #ff9800, #ff5722);
+        padding: 22px;
+        border-radius: 18px;
+        text-align: center;
+        color: white;
+        margin-bottom: 24px;
+        box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        border: 2px solid #ffcc80;
+        animation: popIn 0.5s both;
+      }
+      #danaKagetReward h3 {
+        margin-bottom: 10px;
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+      }
+      #danaKagetReward p {
+        font-size: 0.9rem;
+        margin-bottom: 18px;
+        opacity: 0.95;
+      }
+      .dana-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: white;
+        color: #ff5722;
+        padding: 12px 26px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        transition: transform 0.2s;
+      }
+      .dana-link:hover {
+        transform: scale(1.05);
+      }
+
+      /* ── Comment list ── */
+      .comment-count {
+        font-size: 0.8rem;
+        color: #aaa;
+        margin-bottom: 12px;
+      }
+      .comment-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .comment-item {
+        display: flex;
+        gap: 12px;
+        padding: 14px 16px;
+        background: var(--gold-pale);
+        border-radius: 16px;
+        border-left: 4px solid var(--gold);
+        animation: popIn 0.4s both;
+      }
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.82);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .comment-avatar {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--green), var(--green-mid));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+      }
+      .comment-body {
+        flex: 1;
+      }
+      .comment-header {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-bottom: 4px;
+      }
+      .comment-name {
+        font-weight: 700;
+        color: var(--green);
+        font-size: 0.88rem;
+      }
+      .comment-badge {
+        font-size: 0.62rem;
+        background: var(--gold);
+        color: white;
+        padding: 2px 8px;
+        border-radius: 50px;
+      }
+      .comment-time {
+        font-size: 0.68rem;
+        color: #bbb;
+        margin-left: auto;
+      }
+      .comment-text {
+        color: var(--brown);
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+      .like-btn {
+        background: none;
+        border: 1.5px solid var(--gold-light);
+        border-radius: 50px;
+        padding: 3px 12px;
+        font-size: 0.73rem;
+        cursor: pointer;
+        color: var(--brown);
+        margin-top: 6px;
+        transition: all 0.2s;
+      }
+      .like-btn:hover,
+      .like-btn.liked {
+        background: var(--gold);
+        color: white;
+        border-color: var(--gold);
+      }
+
+      /* ── Loading ── */
+      .loading-dots {
+        display: inline-flex;
+        gap: 5px;
+      }
+      .loading-dots span {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--gold);
+        animation: bounce 0.8s infinite;
+      }
+      .loading-dots span:nth-child(2) {
+        animation-delay: 0.15s;
+      }
+      .loading-dots span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .empty-state {
+        text-align: center;
+        padding: 28px;
+        color: #ccc;
+        font-style: italic;
+        font-size: 0.9rem;
+      }
+
+      /* ── Sparkle ── */
+      .sparkle {
+        position: fixed;
+        pointer-events: none;
+        font-size: 1rem;
+        z-index: 9998;
+        animation: sparkleAnim 0.8s ease-out forwards;
+      }
+      @keyframes sparkleAnim {
+        0% {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.6) translateY(-30px);
+        }
+      }
+
+      /* ── Footer ── */
+      footer {
+        text-align: center;
+        padding: 22px;
+        color: var(--green-mid);
+        font-style: italic;
+        font-size: 0.85rem;
+        position: relative;
+        z-index: 2;
+        opacity: 0.7;
+      }
+
+      @media (max-width: 500px) {
+        .lanterns {
+          gap: 24px;
+        }
+        .card {
+          padding: 20px 16px;
+        }
+        .section-wrap {
+          padding: 0 12px 14px;
+        }
+        .cat-card {
+          min-width: 90px;
+          padding: 12px 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="bg-pattern"></div>
+
+    <!-- ══ Lanterns ══ -->
+    <div class="lanterns">
+      <div class="lantern">
+        <div class="lantern-string"></div>
+        <div class="lantern-body"></div>
+        <div class="lantern-fringe">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-string"></div>
+        <div
+          class="lantern-body"
+          style="
+            background: radial-gradient(ellipse at 40% 30%, #ffd54f, #f57f17);
+          "
+        ></div>
+        <div class="lantern-fringe">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="lantern">
+        <div class="lantern-string"></div>
+        <div class="lantern-body"></div>
+        <div class="lantern-fringe">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ Hero ══ -->
+    <div class="hero">
+      <h1 class="hero-title">Selamat Hari Lebaran</h1>
+      <p class="hero-sub">Idul Fitri 1446 H · Minal Aidin Wal Faizin</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- ══ SECTION 1 : AI Ucapan ══ -->
+    <div class="section-wrap">
+      <div class="card">
+        <p class="label">✦ Ucapan Lebaran dari AI ✦</p>
+        <div class="ai-greeting" id="greeting">
+          Klik tombol di bawah untuk ucapan Lebaran spesial bertema kucing! 🐱🌙
+        </div>
+        <div class="btn-row">
+          <button class="btn-primary" id="genBtn" onclick="generateGreeting()">
+            🌙 Generate Ucapan
+          </button>
+          <button
+            class="btn-outline"
+            id="copyBtn"
+            onclick="copyGreeting()"
+            style="display: none"
+          >
+            📋 Salin
+          </button>
+        </div>
+        <div class="error-msg" id="errMsg" style="display: none"></div>
+      </div>
+    </div>
+
+    <!-- ══ Cat Parade ══ -->
+    <div class="cat-parade">
+      <div class="cat-card" onclick="meow(this)">
+        <span class="cat-emoji">🐱</span><span class="cat-kopiah">🕌</span>
+        <div class="cat-name">Ustadz Mimi</div>
+      </div>
+      <div class="cat-card" onclick="meow(this)">
+        <span class="cat-emoji">😸</span><span class="cat-kopiah">🎀</span>
+        <div class="cat-name">Bu Nyai Kiki</div>
+      </div>
+      <div class="cat-card" onclick="meow(this)">
+        <span class="cat-emoji">🐈</span><span class="cat-kopiah">🌙</span>
+        <div class="cat-name">Haji Belo</div>
+      </div>
+      <div class="cat-card" onclick="meow(this)">
+        <span class="cat-emoji">😺</span><span class="cat-kopiah">⭐</span>
+        <div class="cat-name">Neng Cici</div>
+      </div>
+      <div class="cat-card" onclick="meow(this)">
+        <span class="cat-emoji">🐾</span><span class="cat-kopiah">🌴</span>
+        <div class="cat-name">Pak Tono</div>
+      </div>
+    </div>
+    <div class="ketupat-row">🍃 ◆ 🌴 ◆ 🍃 ◆ 🌴 ◆ 🍃</div>
+
+    <!-- ══ SECTION 2 : Komentar + Dana Kaget ══ -->
+    <div class="section-wrap">
+      <div
+        class="card"
+        style="
+          border-color: #ff9800;
+          box-shadow: 0 8px 40px rgba(255, 152, 0, 0.15);
+        "
+      >
+        <p class="label" style="color: #e65100">🎁 Special THR DANA Kaget ✦</p>
+
+        <div
+          style="
+            background: var(--gold-pale);
+            padding: 18px 22px;
+            border-radius: 16px;
+            border-left: 5px solid #ff9800;
+            border-right: 5px solid #ff9800;
+            margin-bottom: 24px;
+            text-align: center;
+          "
+        >
+          <h3
+            style="
+              font-family: &quot;Playfair Display&quot;, serif;
+              color: #e65100;
+              margin-bottom: 8px;
+              font-size: 1.3rem;
+            "
+          >
+            Bagi Ucapan = Otomatis Dapat THR! 💸
+          </h3>
+          <p style="font-size: 0.95rem; color: var(--brown); line-height: 1.5">
+            Tinggalkan ucapan Lebaran tulusmu. Setiap ucapan sukses dikirim
+            berhak membuka
+            <b>Link DANA Kaget Asli</b> khusus buat kamu! Cepetan komen sebelum
+            kehabisan!
+          </p>
+        </div>
+
+        <div class="comment-form-box">
+          <div class="input-row">
+            <input
+              class="input-field"
+              id="commentName"
+              placeholder="Nama kamu..."
+              maxlength="40"
+            />
+            <select class="select-field" id="commentAvatar">
+              <option value="😊">😊</option>
+              <option value="🐱">🐱</option>
+              <option value="😸">😸</option>
+              <option value="🌙">🌙</option>
+              <option value="⭐">⭐</option>
+              <option value="🌸">🌸</option>
+              <option value="🎉">🎉</option>
+              <option value="🦋">🦋</option>
+            </select>
+          </div>
+          <textarea
+            class="textarea-field"
+            id="commentText"
+            placeholder="Tulis ucapan atau kenangan lebaran kamu... 🌙"
+            maxlength="400"
+          ></textarea>
+          <div class="btn-row">
+            <button
+              class="btn-primary"
+              id="submitCommentBtn"
+              onclick="submitComment()"
+            >
+              ✉️ Kirim Ucapan
+            </button>
+            <span style="font-size: 0.73rem; color: #bbb; font-style: italic"
+              >Terlihat oleh semua pengunjung 🌍</span
+            >
+          </div>
+        </div>
+
+        <!-- Dana Kaget reward — tampil setelah submit berhasil -->
+        <div id="danaKagetReward">
+          <h3>🎉 Yay! THR DANA Kaget Buat Kamu 🎉</h3>
+          <p>
+            Terima kasih sudah berbagi ucapan Lebaran. Ini hadiah kecil untukmu!
+          </p>
+          <a href="#" id="danaKagetLink" target="_blank" class="dana-link">
+            💰 Buka DANA Kaget
+          </a>
+        </div>
+
+        <div class="comment-count" id="commentCount"></div>
+        <div class="comment-list" id="commentList">
+          <div class="empty-state">
+            <div class="loading-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div style="margin-top: 8px">Memuat komentar...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      Dibuat dengan 💛 dan banyak kucing · Selamat Idul Fitri 1446 H · Data
+      dibagikan ke semua pengunjung 🌍 oleh
+      <a
+        style="color: #000000; text-decoration: none"
+        href="https://nafisdvlp.my.id"
+        target="_blank"
+        >Nafis</a
+      >
+    </footer>
+
+    <script>
+      /* ── Custom cursor ── */
+      const cursorEl = document.getElementById("cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursorEl.style.left = e.clientX + "px";
+        cursorEl.style.top = e.clientY + "px";
+      });
+
+      /* ── Sparkle on click ── */
+      document.addEventListener("click", (e) => {
+        if (e.target.closest("input,textarea,select,button,label,a")) return;
+        ["✦", "✧", "⭐", "🌟", "💛", "🌙", "🐾"]
+          .sort(() => Math.random() - 0.5)
+          .slice(0, 5)
+          .forEach((s) => {
+            const el = document.createElement("div");
+            el.className = "sparkle";
+            el.textContent = s;
+            el.style.left = e.clientX + (Math.random() - 0.5) * 60 + "px";
+            el.style.top = e.clientY + (Math.random() - 0.5) * 40 + "px";
+            document.body.appendChild(el);
+            setTimeout(() => el.remove(), 900);
+          });
+      });
+
+      /* ── Cat meow ── */
+      const meows = [
+        "Meooow! 🎉",
+        "Purrr... Minal Aidin! 😻",
+        "Nyaaan! 🌙",
+        "Maaf lahir batin, Meow~ 🐾",
+        "Selamat Lebaran! Nyaaa! 🍃",
+      ];
+      function meow(el) {
+        const n = el.querySelector(".cat-name"),
+          orig = n.textContent;
+        n.textContent = meows[Math.floor(Math.random() * meows.length)];
+        setTimeout(() => (n.textContent = orig), 2000);
+        el.style.transform = "scale(1.15) rotate(3deg)";
+        setTimeout(() => (el.style.transform = ""), 400);
+      }
+
+      /* ══ SECTION 1 — AI Ucapan (hits Node.js backend → GLM-4-Flash) ══ */
+      let currentGreeting = "";
+
+      async function generateGreeting() {
+        const btn = document.getElementById("genBtn");
+        const grEl = document.getElementById("greeting");
+        const errEl = document.getElementById("errMsg");
+        const copyBtn = document.getElementById("copyBtn");
+
+        btn.disabled = true;
+        btn.innerHTML = "⏳ Generating...";
+        errEl.style.display = "none";
+        copyBtn.style.display = "none";
+        grEl.innerHTML = '<span class="cursor-blink"></span>';
+
+        try {
+          const res = await fetch("/api/ucapan");
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          const data = await res.json();
+          if (!data.ok || !data.ucapan) throw new Error("Invalid response");
+          currentGreeting = data.ucapan;
+        } catch (err) {
+          console.error("AI error:", err.message);
+          errEl.textContent =
+            "⚠️ Gagal terhubung ke server. Menggunakan ucapan alternatif.";
+          errEl.style.display = "block";
+          const fallbacks = [
+            "Selamat Hari Raya Idul Fitri! 🌙 Mohon maaf lahir dan batin ya. Semoga di hari suci ini, kebahagiaan selalu menyelimuti keluargamu, sehangat pelukan kucing kesayangan! 🐱✨",
+            "Minal Aidin Wal Faizin! 🕌 Maafkan segala khilaf dan salah. Semoga berkah Ramadan membawa kedamaian di hati, dan rezeki mengalir selincah kucing imut! 😸💛",
+            "Taqabbalallahu minna wa minkum. 🌟 Selamat Lebaran! Mari saling memaafkan dan memulai lembaran baru dengan penuh kelembutan, seperti usapan sayang pada anabulmu! 🐾🌸",
+          ];
+          currentGreeting =
+            fallbacks[Math.floor(Math.random() * fallbacks.length)];
+        }
+
+        // Typewriter
+        grEl.textContent = "";
+        let i = 0;
+        const iv = setInterval(() => {
+          if (i < currentGreeting.length) {
+            grEl.textContent += currentGreeting[i++];
+          } else {
+            clearInterval(iv);
+            copyBtn.style.display = "inline-flex";
+          }
+        }, 22);
+
+        btn.disabled = false;
+        btn.innerHTML = "🌙 Generate Lagi";
+      }
+
+      function copyGreeting() {
+        navigator.clipboard.writeText(currentGreeting).then(() => {
+          const b = document.getElementById("copyBtn");
+          b.textContent = "✅ Tersalin!";
+          setTimeout(() => (b.textContent = "📋 Salin"), 2000);
+        });
+      }
+
+      /* ══ SECTION 2 — Komentar + Dana Kaget (Node.js → PostgreSQL) ══ */
+
+      async function submitComment() {
+        const name = document.getElementById("commentName").value.trim();
+        const text = document.getElementById("commentText").value.trim();
+        const avatar = document.getElementById("commentAvatar").value;
+        const btn = document.getElementById("submitCommentBtn");
+
+        if (!name) {
+          document.getElementById("commentName").focus();
+          return;
+        }
+        if (!text) {
+          document.getElementById("commentText").focus();
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = "⏳ Mengirim...";
+
+        try {
+          const res = await fetch("/api/komentar", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ nama: name, pesan: text, avatar }),
+          });
+          const data = await res.json();
+
+          if (data.ok) {
+            document.getElementById("commentText").value = "";
+
+            // Fetch URL Dana Kaget dari server
+            try {
+              const danaRes = await fetch("/api/dana-kaget");
+              const danaData = await danaRes.json();
+              if (danaData.ok && danaData.url) {
+                document.getElementById("danaKagetLink").href = danaData.url;
+              }
+            } catch (e) {
+              console.error("Gagal mengambil URL Dana Kaget:", e);
+            }
+
+            // Tampilkan Dana Kaget
+            const box = document.getElementById("danaKagetReward");
+            box.style.display = "block";
+            setTimeout(
+              () => box.scrollIntoView({ behavior: "smooth", block: "center" }),
+              100,
+            );
+
+            setTimeout(loadComments, 700);
+          } else {
+            alert("Gagal mengirim: " + (data.error || "coba lagi 😿"));
+          }
+        } catch {
+          alert("Koneksi gagal, coba lagi! 😿");
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = "✉️ Kirim Ucapan";
+      }
+
+      /* Like (client-side optimistic, sessionStorage) */
+      function getLiked() {
+        try {
+          return new Set(JSON.parse(sessionStorage.getItem("liked_c") || "[]"));
+        } catch {
+          return new Set();
+        }
+      }
+      function saveLiked(s) {
+        try {
+          sessionStorage.setItem("liked_c", JSON.stringify([...s]));
+        } catch {}
+      }
+      function toggleLike(id) {
+        const liked = getLiked();
+        const el = document.getElementById("like-" + id);
+        if (!el) return;
+        const n = parseInt(el.dataset.likes || "0");
+        if (liked.has(id)) {
+          liked.delete(id);
+          el.dataset.likes = n - 1;
+          el.textContent = "❤️ " + (n - 1);
+          el.classList.remove("liked");
+        } else {
+          liked.add(id);
+          el.dataset.likes = n + 1;
+          el.textContent = "❤️ " + (n + 1);
+          el.classList.add("liked");
+        }
+        saveLiked(liked);
+      }
+
+      async function loadComments() {
+        const list = document.getElementById("commentList");
+        const count = document.getElementById("commentCount");
+        try {
+          const res = await fetch("/api/komentar");
+          const data = await res.json();
+          if (!data.ok || !data.komentar.length) {
+            list.innerHTML =
+              '<div class="empty-state">Belum ada ucapan. Tinggalkan pesan pertamamu! 🌙</div>';
+            count.textContent = "";
+            return;
+          }
+          const liked = getLiked();
+          count.textContent = `${data.komentar.length} ucapan terkirim 💌`;
+          list.innerHTML = data.komentar
+            .map(
+              (c) => `
+      <div class="comment-item">
+        <div class="comment-avatar">${esc(c.avatar || "😊")}</div>
+        <div class="comment-body">
+          <div class="comment-header">
+            <span class="comment-name">${esc(c.nama)}</span>
+            <span class="comment-badge">🌙 Lebaran</span>
+            <span class="comment-time">${fmtDate(c.created_at)}</span>
+          </div>
+          <div class="comment-text">${esc(c.pesan)}</div>
+          <button class="like-btn ${liked.has(c.id) ? "liked" : ""}"
+            id="like-${c.id}" data-likes="${c.likes || 0}"
+            onclick="toggleLike(${c.id})">❤️ ${c.likes || 0}</button>
+        </div>
+      </div>`,
+            )
+            .join("");
+        } catch {
+          list.innerHTML =
+            '<div class="empty-state">Gagal memuat komentar 😿</div>';
+        }
+      }
+
+      function esc(s) {
+        return String(s)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+      function fmtDate(d) {
+        try {
+          return new Date(d).toLocaleString("id-ID", {
+            day: "numeric",
+            month: "short",
+            hour: "2-digit",
+            minute: "2-digit",
+          });
+        } catch {
+          return d || "";
+        }
+      }
+
+      loadComments();
+    </script>
+  </body>
+</html>
